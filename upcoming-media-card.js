@@ -1,4 +1,4 @@
-class UpcomingMediaCard extends HTMLElement {
+class UpcomingMediaCardJellyfin extends HTMLElement {
   set hass(hass) {
     if (!this.content) {
       const card = document.createElement("ha-card");
@@ -465,13 +465,13 @@ class UpcomingMediaCard extends HTMLElement {
     return view == "poster" ? window.cardSize * 5 : window.cardSize * 3;
   }
 }
-customElements.define("upcoming-media-card", UpcomingMediaCard);
+customElements.define("upcoming-media-card-jellyfin", UpcomingMediaCardJellyfin);
 
 // Configure the preview in the Lovelace card picker
 window.customCards = window.customCards || [];
 window.customCards.push({
-  type: 'upcoming-media-card',
-  name: 'Upcoming Media Card',
+  type: 'upcoming-media-card-jellyfin',
+  name: 'Upcoming Media Card Jellyfin',
   preview: false,
-  description: 'The Upcoming Media card displays upcoming episodes and movies from services like: Plex, Kodi, Radarr, Sonarr, and Trakt.',
+  description: 'The Forked Upcoming Media card displays upcoming episodes and movies from services like: Jellyfin.',
 });
