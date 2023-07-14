@@ -12,8 +12,8 @@ class UpcomingMediaCardJellyfin extends HTMLElement {
     const entity = this.config.entity;
     if (!hass.states[entity]) return;
     let service = this.config.entity.slice(7, 11);
-    let data = hass.states[entity].attributes.data
-    const json = typeof(data) == "object" ? hass.states[entity].attributes.yamc.data : JSON.parse(hass.states[entity].attributes.yamc.data);
+    let data = hass.states[entity].attributes.yamc.data
+    const json = typeof(data) == "object" ? data : JSON.parse(data);
     if (!json[1] && this.config.hide_empty) this.style.display = "none";
     if (!json || !json[1] || this.prev_json == JSON.stringify(json)) return;
     this.prev_json = JSON.stringify(json);
